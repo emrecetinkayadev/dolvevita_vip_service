@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Mercedes S-Class",
+    "description": "Zirvedeki Liderler İçin",
+    "capacity": 3,
+    "luggage": 2,
+    "base_price": 500,
+    "price_per_km": 15,
+    "images": [
+      "https://images.unsplash.com/photo-1596229281214-253151d797a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mercedes Vito",
+    "description": "Geniş Aileler ve Gruplar İçin",
+    "capacity": 8,
+    "luggage": 8,
+    "base_price": 400,
+    "price_per_km": 12,
+    "images": [
+      "https://images.unsplash.com/photo-1620494253290-31c5f3f9c85f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Mercedes Sprinter",
+    "description": "Büyük Gruplar ve Etkinlikler İçin",
+    "capacity": 16,
+    "luggage": 15,
+    "base_price": 600,
+    "price_per_km": 18,
+    "images": [
+      "https://images.unsplash.com/photo-1599822473410-4a4b07c6b7a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    ]
+  }
+]
