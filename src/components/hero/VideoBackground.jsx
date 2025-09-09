@@ -12,7 +12,7 @@ const VideoBackground = () => {
       />
       <div className="relative z-10 flex flex-col justify-center items-center h-full text-white bg-black bg-opacity-50">
         <h1 className="text-5xl font-bold">Ulaşımın Sanatı. Konforun Zirvesi.</h1>
-        <p className="text-xl mt-4">Elysian VIP Transfer</p>
+        <p className="text-xl mt-4">Dolce Vita VIP Service</p>
       </div>
     </div>
   );

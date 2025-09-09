@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Elysian</h3>
+            <h3 className="text-xl font-bold mb-4">Dolce Vita VIP Service</h3>
             <p className="text-gray-400">
               Ulaşımın sanatı, konforun zirvesi.
             </p>
@@ -24,7 +24,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">İletişim</h3>
             <ul className="text-gray-400">
               <li className="mb-2">Telefon: +90 555 555 55 55</li>
-              <li className="mb-2">E-posta: info@elysian.com</li>
+              <li className="mb-2">E-posta: info@dolcevita.com</li>
               <li className="mb-2">Adres: İstanbul, Türkiye</li>
             </ul>
             <div className="flex space-x-4 mt-4">
