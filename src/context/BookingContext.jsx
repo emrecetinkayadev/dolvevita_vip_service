@@ -1,71 +1,51 @@
 import React, { createContext, useState } from 'react';
-import vehicles from '../mock-vehicles.json';
-import useGoogleApi from '../services/googleApi';
 
-const BookingContext = createContext();
+export const BookingContext = createContext();
 
-const BookingProvider = ({ children }) => {
-  const { isLoaded, loadError, getDistanceMatrix } = useGoogleApi();
+export const BookingProvider = ({ children }) => {
   const [booking, setBooking] = useState({
+    searchPerformed: false,
     vehicle: null,
-    travelDetails: null,
     passengerDetails: null,
   });
-  const [filteredVehicles, setFilteredVehicles] = useState([]);
+  const [bookingStatus, setBookingStatus] = useState('pending');
 
-  const searchVehicles = async (searchParams) => {
-    if (!isLoaded) {
-      console.error('Google Maps script is not loaded yet.');
-      return;
-    }
-
-    try {
-      const response = await getDistanceMatrix(
-        searchParams.origin,
-        searchParams.destination
-      );
-      const { distance } = response.rows[0].elements[0];
-      const distanceInKm = distance.value / 1000;
-
-      const pricedVehicles = vehicles.map((vehicle) => {
-        const price = vehicle.base_price + distanceInKm * vehicle.price_per_km;
-        return { ...vehicle, price: price.toFixed(2) };
-      });
-
-      const filtered = pricedVehicles.filter(
-        (vehicle) => vehicle.capacity >= searchParams.passengers
-      );
-
-      setFilteredVehicles(filtered);
-      setBooking((prev) => ({ ...prev, travelDetails: searchParams }));
-    } catch (error) {
-      console.error('Error calculating distance or pricing:', error);
-    }
+  const searchVehicles = () => {
+    setBooking(prev => ({ ...prev, searchPerformed: true }));
+    setTimeout(() => document.getElementById('fleet')?.scrollIntoView({ behavior: 'smooth' }), 100);
   };
 
   const selectVehicle = (vehicle) => {
-    setBooking((prev) => ({ ...prev, vehicle }));
+    setBooking(prev => ({ ...prev, vehicle }));
+    setTimeout(() => document.getElementById('passenger-details')?.scrollIntoView({ behavior: 'smooth' }), 100);
   };
 
   const setPassengerDetails = (details) => {
-    setBooking((prev) => ({ ...prev, passengerDetails: details }));
+    setBooking(prev => ({ ...prev, passengerDetails: details }));
+  };
+
+  const resetBooking = () => {
+    setBooking({
+      searchPerformed: false,
+      vehicle: null,
+      passengerDetails: null,
+    });
+    setBookingStatus('pending');
+  }
+
+  const value = { 
+    booking, 
+    bookingStatus, 
+    setBookingStatus, 
+    searchVehicles, 
+    selectVehicle, 
+    setPassengerDetails,
+    resetBooking
   };
 
   return (
-    <BookingContext.Provider
-      value={{
-        booking,
-        filteredVehicles,
-        searchVehicles,
-        selectVehicle,
-        setPassengerDetails,
-        isGoogleApiLoaded: isLoaded,
-        googleApiLoadError: loadError,
-      }}
-    >
+    <BookingContext.Provider value={value}>
       {children}
     </BookingContext.Provider>
   );
 };
-
-export { BookingContext, BookingProvider };

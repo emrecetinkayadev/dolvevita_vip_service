@@ -2,14 +2,17 @@ import React from 'react';
 
 const Success = () => {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg max-w-4xl mx-auto my-12 text-center">
-      <div className="text-green-500 text-6xl mb-4">
-        <i className="fas fa-check-circle"></i>
+    <div className="h-screen flex flex-col justify-center items-center text-center bg-gray-900">
+      <div className="animate-fade-in">
+        <h1 className="font-serif text-5xl text-brand-gold font-bold mb-4">Teşekkür Ederiz!</h1>
+        <p className="text-xl text-gray-300">Rezervasyon talebiniz başarıyla alınmıştır.</p>
+        <p className="text-gray-400 mt-2">En kısa sürede sizinle iletişime geçeceğiz.</p>
+        <button 
+          onClick={() => window.location.reload()} 
+          className="mt-8 bg-brand-gold text-black font-bold py-3 px-8 rounded-md hover:bg-opacity-90 transition">
+          Yeni Rezervasyon
+        </button>
       </div>
-      <h2 className="text-2xl font-bold mb-4">Rezervasyonunuz Alınmıştır!</h2>
-      <p className="text-gray-600">
-        Detayları e-posta adresinize gönderdik.
-      </p>
     </div>
   );
 };
