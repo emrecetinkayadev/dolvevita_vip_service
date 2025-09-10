@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
-    "@stripe/react-stripe-js": "^4.0.1",
-    "@stripe/stripe-js": "^7.9.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-google-autocomplete": "^2.7.5"
