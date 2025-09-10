@@ -4,7 +4,8 @@ import vehiclesData from './mock-vehicles.json';
 import VehicleList from './components/booking/VehicleList';
 import PassengerDetailsForm from './components/booking/PassengerDetailsForm';
 import Success from './components/booking/Success';
-import ContactModal from './components/contact/ContactModal'; // ContactModal import edildi
+import ContactModal from './components/contact/ContactModal';
+import FloatingActionButtons from './components/common/FloatingActionButtons'; // FAB import edildi
 
 // --- Alt Bileşenler ---
 
@@ -19,7 +20,7 @@ const Header = ({ onContactClick }) => { // onContactClick prop'u eklendi
   return (
     <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isScrolled ? 'py-3 bg-glass shadow-xl' : 'py-5 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="text-white font-serif text-2xl font-bold">Dolce Vita VIP Service</div>
+        <img src="/images/logo.png" alt="Dolce Vita VIP Service Logo" className="w-20 h-auto" />
         <button onClick={onContactClick} className="bg-brand-gold text-black font-bold py-2 px-5 rounded-md text-sm hover:bg-opacity-90 transition-colors duration-300">
           İletişim
         </button>
@@ -76,6 +77,7 @@ function App() {
     <div className="min-h-screen bg-gray-900">
       <Header onContactClick={() => setIsContactModalOpen(true)} />
       <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
+      <FloatingActionButtons />
 
       <main>
         <HeroSection />
